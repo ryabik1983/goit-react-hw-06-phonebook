@@ -1,6 +1,6 @@
-import { Provider } from 'react-redux';
+
 import './App.css';
-import {store} from './store/index';
+// import {store} from './store/index';
 import React, { useState } from 'react';
 import { nanoid } from 'nanoid';
 
@@ -10,6 +10,8 @@ import ContactsList from './components/ContactList/ContactList';
 import useLocalStorage from './components/uselocalstorage/uselocalstorage';
 // import Modal from './components/Modal/Modal';
 import './App.css';
+import { Header } from './components/Header';
+import { Provider } from 'react-redux';
 
 
 function App() {
@@ -48,8 +50,9 @@ const deleteContact = id => {
 };
 
 return (
-  <Provider store={store}>
+  
 <main className="main">
+    <Header value = {21}/>
     <h1 className="title">Phonebook</h1>
     <ContactForm onSubmit={formSubmitData} />
     <h2 className="title">Contacts</h2>
@@ -59,9 +62,9 @@ return (
       deleteContact={deleteContact}
     />
   </main>
-  </Provider>
-  
-);
-}
+   
+)  
+  };
+
 
 export default App;

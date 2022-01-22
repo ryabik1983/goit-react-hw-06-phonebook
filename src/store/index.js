@@ -1,14 +1,22 @@
-import {createStore} from 'redux';
+import {createStore, applyMiddleware} from 'redux';
+import { composeWithDevTools } from '@redux-devtools/extension';
 
 const initialStore = {
-    cart: null,
+    cart: 'empty',
     balance: 100,
     }
-    const ACTIONS = {
+const composeEnhancers = composeWithDevTools({
+name: 'DO_NOT_FOLLOV_DIRTY_LINKS',
+      });
+
+const ACTIONS = {
         ADD_TO_CART: 'ADD_TO_CART',
         CLEAR_CART: 'CLEAR_CART',
         CHECKOUT: 'CHECKOUT'
     }
+    export const addToCart = () => ({
+        type: ACTIONS.ADD_TO_CART,
+    })
 
     const reduser = (state = initialStore, action) => {
             switch (action.type) {
@@ -26,4 +34,10 @@ const initialStore = {
         //     }
         //     return state;
     }
-    export const store = createStore(reduser);
+    export const store = createStore(
+        reduser,
+        composeEnhancers(
+            applyMiddleware()
+            // other store enhancers if any
+          )
+        );
