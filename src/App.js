@@ -8,10 +8,11 @@ import ContactForm from './components/ContactForm/ContactForm';
 import Filter from './components/Filter/Filter';
 import ContactsList from './components/ContactList/ContactList';
 import useLocalStorage from './components/uselocalstorage/uselocalstorage';
+
 // import Modal from './components/Modal/Modal';
 import './App.css';
 import { Header } from './components/Header';
-import { Provider } from 'react-redux';
+// import { Provider } from 'react-redux';
 
 
 function App() {
