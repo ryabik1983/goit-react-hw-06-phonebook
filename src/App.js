@@ -11,8 +11,8 @@ import useLocalStorage from './components/uselocalstorage/uselocalstorage';
 
 // import Modal from './components/Modal/Modal';
 import './App.css';
-import { Header } from './components/Header';
-// import { Provider } from 'react-redux';
+// import { Header } from './components/Header';
+
 
 
 function App() {
@@ -53,7 +53,7 @@ const deleteContact = id => {
 return (
   
 <main className="main">
-    <Header value = {21}/>
+    {/* <Header value = {21}/> */}
     <h1 className="title">Phonebook</h1>
     <ContactForm onSubmit={formSubmitData} />
     <h2 className="title">Contacts</h2>

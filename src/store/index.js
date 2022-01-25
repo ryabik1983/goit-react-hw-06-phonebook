@@ -1,12 +1,13 @@
 import {createStore} from 'redux';
 // // import { composeWithDevTools } from '@redux-devtools/extension';
 
-// // const initialStore = {
-// //     contacts: {
-// //       items: [],
-// //       filter: ''
-// //     }
-// //   }
+const initialState = {
+    contacts: {
+      items: [],
+      filter: ''
+    }
+  }
+
 
 // // //   configureStore()
 // // // createAction()
@@ -15,10 +16,10 @@ import {createStore} from 'redux';
 // // name: 'DO_NOT_FOLLOV_DIRTY_LINKS',
 // //       });
 
-export const myAction = {
-    type: 'MY_ACTIOON',
-    payload: 'super payload',
-}
+// export const myAction = {
+//     type: 'MY_ACTIOON',
+//     payload: 'super payload',
+// }
 // // const ACTIONS = {
 // //         ADD_CONTACT: 'ADD_CONTACT',
 // //         DELETE_CONTACT: 'DELETE_CONTACT',
@@ -44,11 +45,13 @@ export const myAction = {
 // //         //     }
 // //         //     return state;
 // //     }
-const reduser = (state = {}, action) => 
-console.log('log action', action);
+const reduser = (state = initialState, action) => 
+{
+    return state; 
 
-return state; 
-    const store = createStore(
+}
+
+const store = createStore(
         reduser
         // composeEnhancers(
         //     applyMiddleware()
