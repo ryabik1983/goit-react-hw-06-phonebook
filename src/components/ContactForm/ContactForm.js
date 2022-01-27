@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {connect} from 'react-redux';
+// imnpm startport {connect} from 'react-redux';
 import styles from './ContactForm.module.css';
 
 const ContactForm = ({ onSubmit }) => {

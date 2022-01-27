@@ -1,4 +1,8 @@
 import {createStore} from 'redux';
+import { combineReducers } from 'redux';
+import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
+import { contactsReduser } from './reduser';
+
 // // import { composeWithDevTools } from '@redux-devtools/extension';
 
 const initialState = {
@@ -45,17 +49,24 @@ const initialState = {
 // //         //     }
 // //         //     return state;
 // //     }
-const reduser = (state = initialState, action) => 
-{
-    return state; 
+// const reduser = (state = initialState, action) => 
+// {
+//     return state; 
 
-}
+// }
+const rootReduser = combineReducers ({
 
-const store = createStore(
-        reduser
-        // composeEnhancers(
-        //     applyMiddleware()
-            // other store enhancers if any
-          );
+})
+
+// const store = createStore(
+//         reduser
+//         // composeEnhancers(
+//         //     applyMiddleware()
+//             // other store enhancers if any
+//           );
     
+const store = configureStore ({
+  reduser:  
+});
+
 export default  store;

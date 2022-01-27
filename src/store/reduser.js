@@ -1,5 +1,6 @@
 import {createStore} from 'redux';
 
+
 const initialState = {
     contacts: {
       items: [],
@@ -7,7 +8,7 @@ const initialState = {
     }
   };
 
-const reduser = (state = initialState, action) => {
+const contactsReduser = (state = initialState, action) => {
     switch (action.type) {
         case 'CONTACT_ADD':
             return {contacts.items: state.contacts.items},
