@@ -1,20 +1,34 @@
-import {createStore} from 'redux';
+import { combineReducers } from 'redux';
+import { createReduser } from '@reduxjs/toolkit';
+import { nanoid } from 'nanoid';
+import { addContact, deleteContact, filterContacts } from './actions';
 
-
-const initialState = {
-    contacts: {
-      items: [],
-      filter: ''
+const contactsReduser = createReduser([], {
+  [addContact]: (state, {payload}) => {
+    const {name, number} = payload;
+    const newItem = {
+      id: nanoid(),
+      name: name,
+      number: number,
     }
-  };
-
-const contactsReduser = (state = initialState, action) => {
-    switch (action.type) {
-        case 'CONTACT_ADD':
-            return {contacts.items: state.contacts.items},
-        case 'CONTACT_DELETE':
-            return {contacts.items: state.contacts.items},
-    default: 
-    return state;
+    let isUnique = state.some(el => el.name === name);
+    console.log(isUnique);
+    if (!isUnique) {
+      return [...state, newItem];
+    } else {
+      alert(`${name} is already in contacts`);
     }
-}
+    return;
+   },
+   [deleteContact]: (state, {payload}) => [
+     ...state.filter(el => el.id !== payload),
+   ], 
+});
+const filterReduser = createReduser ('', {
+  [filterContacts]: (_, {payload}) => payload,
+});
+
+export default combineReducers({
+  contactsReduser,
+  filterReduser,
+});

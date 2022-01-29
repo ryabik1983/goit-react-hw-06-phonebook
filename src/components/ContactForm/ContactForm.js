@@ -1,14 +1,15 @@
 import React, {useState} from 'react';
-// imnpm startport {connect} from 'react-redux';
 import styles from './ContactForm.module.css';
 
 const ContactForm = ({ onSubmit }) => {
   const [name, setName] = useState (''); 
   const [number, setNumber] = useState ('')
+  
   const handleChange = e => {
    if (e.currentTarget.name === 'name') setName(e.currentTarget.value);
    if (e.currentTarget.name === 'number') setNumber(e.currentTarget.value); 
   };
+  
   const handleSubmit = e => {
         e.preventDefault();
         onSubmit({
@@ -55,11 +56,7 @@ const ContactForm = ({ onSubmit }) => {
             );
 
 }
-const mapStateToProps = state => {
-  return {
-   contacts: state.contacts.items,
-  filter: state.contacts.filter,
-  }
-}
 
-export default connect (mapStateToProps)(ContactForm);
+
+export default ContactForm;
+

@@ -1,16 +1,19 @@
-import {createStore} from 'redux';
-import { combineReducers } from 'redux';
+// import {createStore} from 'redux';
+// import { combineReducers } from 'redux';
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
-import { contactsReduser } from './reduser';
+import logger from 'redux-logger';
+import { combineReducers } from './reduser';
+
+const middleware = [...getDefaultMiddleware(), logger];
 
 // // import { composeWithDevTools } from '@redux-devtools/extension';
 
-const initialState = {
-    contacts: {
-      items: [],
-      filter: ''
-    }
-  }
+// const initialState = {
+//     contacts: {
+//       items: [],
+//       filter: ''
+//     }
+//   }
 
 
 // // //   configureStore()
@@ -54,9 +57,9 @@ const initialState = {
 //     return state; 
 
 // }
-const rootReduser = combineReducers ({
+// const rootReduser = combineReducers ({
 
-})
+// })
 
 // const store = createStore(
 //         reduser
@@ -66,7 +69,11 @@ const rootReduser = combineReducers ({
 //           );
     
 const store = configureStore ({
-  reduser:  
+  reduser:  {
+    contactsReduser,
+  },
+  middleware,
+  devTools: process.env.NODE_ENV === 'development',
 });
 
 export default  store;
