@@ -1,4 +1,4 @@
-import {createAction} from '@reduxjs/tollkit';
+import {createAction} from '@reduxjs/toolkit';
 
 export const addContact = createAction('add');
 export const deleteContact = createAction('delete');
